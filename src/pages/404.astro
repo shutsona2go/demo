@@ -1,0 +1,94 @@
+---
+// Branded 404 — Destinations, Membership, Journal, Inquire all land here until built
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Coming Soon · The Blue Meridian Club</title>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+	</head>
+	<body>
+		<main class="stub">
+			<div class="stub-bg"></div>
+			<div class="stub-overlay"></div>
+			<div class="content">
+				<p class="eyebrow">— Casting Line —</p>
+				<h1>This water is still being scouted.</h1>
+				<p class="tagline">We're tying flies for this page. Check back soon, or<br />make your introduction below.</p>
+				<a class="cta" href="/">Return to the Club</a>
+			</div>
+		</main>
+
+		<style>
+			:root { --ink: #0a1628; --gold: #d4af6f; --paper: #f4f1ea; }
+			* { box-sizing: border-box; margin: 0; padding: 0; }
+			html, body { height: 100%; }
+			body {
+				font-family: 'Inter', system-ui, sans-serif;
+				color: var(--paper);
+				background: var(--ink);
+				-webkit-font-smoothing: antialiased;
+			}
+			.stub {
+				position: relative;
+				min-height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				overflow: hidden;
+			}
+			.stub-bg {
+				position: absolute;
+				inset: 0;
+				background:
+					radial-gradient(ellipse at 50% 30%, rgba(212, 175, 111, 0.18) 0%, transparent 60%),
+					linear-gradient(180deg, #06304a 0%, #0a4d6e 35%, #0f6b94 70%, #1a8db5 100%);
+			}
+			.stub-overlay {
+				position: absolute;
+				inset: 0;
+				background: linear-gradient(180deg, rgba(10,22,40,0.4) 0%, rgba(10,22,40,0.65) 100%);
+			}
+			.content { position: relative; z-index: 1; padding: 2rem; max-width: 720px; }
+			.eyebrow {
+				font-size: 0.8rem;
+				letter-spacing: 0.45em;
+				text-transform: uppercase;
+				color: var(--gold);
+				margin-bottom: 1.5rem;
+			}
+			h1 {
+				font-family: 'Cormorant Garamond', Georgia, serif;
+				font-weight: 500;
+				font-size: clamp(2rem, 5vw, 3.75rem);
+				line-height: 1.1;
+				margin-bottom: 1.5rem;
+			}
+			.tagline {
+				font-size: 1.05rem;
+				font-weight: 300;
+				line-height: 1.7;
+				opacity: 0.9;
+				margin-bottom: 2.5rem;
+			}
+			.cta {
+				display: inline-block;
+				padding: 0.9rem 2.5rem;
+				border: 1px solid var(--gold);
+				color: var(--gold);
+				text-decoration: none;
+				font-size: 0.78rem;
+				letter-spacing: 0.35em;
+				text-transform: uppercase;
+				transition: background 0.3s, color 0.3s;
+			}
+			.cta:hover { background: var(--gold); color: var(--ink); }
+		</style>
+	</body>
+</html>
