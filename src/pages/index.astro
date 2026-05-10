@@ -31,45 +31,6 @@
 				<div class="hero-bg"></div>
 				<div class="hero-overlay"></div>
 
-				<!-- Permit fish: stylized silhouette, drifting -->
-				<svg class="permit" viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-					<defs>
-						<linearGradient id="permitBody" x1="0%" y1="0%" x2="0%" y2="100%">
-							<stop offset="0%" stop-color="rgba(244,241,234,0.92)"/>
-							<stop offset="55%" stop-color="rgba(206,220,232,0.78)"/>
-							<stop offset="100%" stop-color="rgba(160,180,200,0.6)"/>
-						</linearGradient>
-						<linearGradient id="permitFin" x1="0%" y1="0%" x2="0%" y2="100%">
-							<stop offset="0%" stop-color="rgba(212,175,111,0.85)"/>
-							<stop offset="100%" stop-color="rgba(212,175,111,0.35)"/>
-						</linearGradient>
-					</defs>
-					<path d="M 600,180 L 770,90 L 720,180 L 770,270 Z"
-						fill="url(#permitBody)" stroke="rgba(10,22,40,0.35)" stroke-width="1.2"/>
-					<path d="M 80,180
-							 C 110,90 260,55 420,55
-							 C 540,55 610,110 630,180
-							 C 610,250 540,305 420,305
-							 C 260,305 110,270 80,180 Z"
-						fill="url(#permitBody)" stroke="rgba(10,22,40,0.4)" stroke-width="1.4"/>
-					<path d="M 280,55 C 230,5 200,15 240,55 C 320,55 360,40 380,55 Z"
-						fill="url(#permitFin)" stroke="rgba(10,22,40,0.25)" stroke-width="0.8"/>
-					<path d="M 400,55 Q 480,40 560,60 L 540,72 Q 460,68 400,72 Z"
-						fill="rgba(212,175,111,0.55)"/>
-					<path d="M 300,305 C 240,360 220,340 260,305 C 340,305 380,320 400,305 Z"
-						fill="url(#permitFin)" stroke="rgba(10,22,40,0.25)" stroke-width="0.8"/>
-					<path d="M 320,210 C 270,260 220,300 180,340 C 240,300 290,250 330,225 Z"
-						fill="rgba(10,22,40,0.55)" stroke="rgba(10,22,40,0.6)" stroke-width="0.5"/>
-					<path d="M 180,95 Q 380,65 580,140"
-						fill="none" stroke="rgba(10,22,40,0.32)" stroke-width="14" stroke-linecap="round" opacity="0.5"/>
-					<path d="M 160,120 Q 175,180 160,240"
-						fill="none" stroke="rgba(10,22,40,0.35)" stroke-width="1.5"/>
-					<circle cx="125" cy="170" r="7" fill="#0a1628"/>
-					<circle cx="122" cy="167" r="2.2" fill="#f4f1ea"/>
-					<path d="M 82,195 Q 95,205 110,200"
-						fill="none" stroke="rgba(10,22,40,0.5)" stroke-width="1.6" stroke-linecap="round"/>
-				</svg>
-
 				<div class="hero-content">
 					<p class="eyebrow">— By Invitation —</p>
 					<h1>The Blue Meridian Club</h1>
@@ -79,6 +40,9 @@
 
 				<div class="hero-footer">
 					<span>Belize · Bahamas · Seychelles · Christmas Island</span>
+				</div>
+				<div class="photo-credit">
+					Photo © Doug Perrine / Florida Museum of Natural History
 				</div>
 			</section>
 
@@ -189,35 +153,34 @@
 			.hero-bg {
 				position: absolute;
 				inset: 0;
-				background:
-					radial-gradient(ellipse at 50% 30%, rgba(212, 175, 111, 0.18) 0%, transparent 60%),
-					linear-gradient(180deg, #06304a 0%, #0a4d6e 22%, #0f6b94 45%, #1a8db5 65%, #2bb0c9 82%, #4dd0a8 100%);
+				background-color: #06304a;
+				background-image:
+					linear-gradient(180deg, rgba(6, 48, 74, 0.35) 0%, rgba(6, 48, 74, 0.25) 50%, rgba(6, 48, 74, 0.55) 100%),
+					url('https://www.floridamuseum.ufl.edu/wp-content/uploads/sites/66/2017/05/Trachinotus-falcatus-01.jpg');
 				background-size: cover;
 				background-position: center;
+				animation: slowZoom 18s ease-in-out infinite alternate;
 			}
-			/* Drop public/hero.jpg, then uncomment to use real photo as hero bg */
-			/*
-			.hero-bg { background-image: url('/hero.jpg'); background-size: cover; background-position: center; }
-			*/
+			@keyframes slowZoom {
+				from { transform: scale(1); }
+				to   { transform: scale(1.08); }
+			}
+			/* Swap in /public/hero.jpg whenever you have a licensed/owned shot:
+			   replace the URL above with url('/hero.jpg') */
 			.hero-overlay {
 				position: absolute;
 				inset: 0;
-				background: linear-gradient(180deg, rgba(10, 22, 40, 0.5) 0%, rgba(10, 22, 40, 0.12) 40%, rgba(10, 22, 40, 0.75) 100%);
+				background: linear-gradient(180deg, rgba(10, 22, 40, 0.45) 0%, rgba(10, 22, 40, 0.15) 35%, rgba(10, 22, 40, 0.85) 100%);
 			}
-			.permit {
+			.photo-credit {
 				position: absolute;
-				top: 14%;
-				left: 50%;
-				width: min(640px, 70vw);
-				transform: translateX(-50%);
-				opacity: 0.85;
-				animation: drift 9s ease-in-out infinite;
-				filter: drop-shadow(0 8px 24px rgba(10, 22, 40, 0.4));
-				z-index: 1;
-			}
-			@keyframes drift {
-				0%, 100% { transform: translate(-50%, 0); }
-				50% { transform: translate(calc(-50% + 14px), -10px); }
+				bottom: 0.6rem;
+				right: 1rem;
+				z-index: 2;
+				font-size: 0.6rem;
+				letter-spacing: 0.15em;
+				text-transform: uppercase;
+				color: rgba(244, 241, 234, 0.45);
 			}
 			.hero-content {
 				position: relative;
